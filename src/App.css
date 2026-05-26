@@ -63,6 +63,13 @@ body {
   color: var(--text-secondary);
 }
 
+.domain-badge {
+  font-size: 0.85rem;
+  color: var(--primary-color);
+  margin-top: 0.5rem;
+  font-weight: bold;
+}
+
 .status-indicator {
   display: flex;
   align-items: center;
@@ -344,6 +351,315 @@ section h2 {
   margin-top: 0.5rem;
 }
 
+.footer-legal {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+/* Routes View */
+.routes-view {
+  animation: fadeIn 0.5s ease;
+}
+
+.section-description {
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+.routes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.route-card {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(255, 107, 157, 0.05) 100%);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.route-card:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+  transform: translateY(-5px);
+}
+
+.route-icon {
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.route-content h3 {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.route-content p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.route-path {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  color: var(--success-color);
+  font-size: 0.85rem;
+  display: block;
+}
+
+.route-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+}
+
+.route-link:hover {
+  color: var(--secondary-color);
+  text-decoration: underline;
+}
+
+.domain-info {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(255, 107, 157, 0.05) 100%);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+.domain-info h3 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.info-box {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 1.5rem;
+  border-radius: 5px;
+  border-left: 3px solid var(--primary-color);
+}
+
+.info-box p {
+  color: var(--text-secondary);
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+}
+
+.info-box strong {
+  color: var(--primary-color);
+}
+
+/* Quick Links */
+.quick-links {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(255, 107, 157, 0.05) 100%);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+.quick-links h3 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.quick-links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.quick-link-card {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.quick-link-card:hover {
+  border-color: var(--primary-color);
+  background: rgba(0, 212, 255, 0.1);
+}
+
+.quick-link-card .icon {
+  font-size: 2rem;
+}
+
+.quick-link-card .label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* Ecosystem View */
+.ecosystem-view {
+  animation: fadeIn 0.5s ease;
+}
+
+.ecosystem-section {
+  margin-bottom: 3rem;
+}
+
+.ecosystem-section h3 {
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+}
+
+.ecosystem-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.ecosystem-card {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(255, 107, 157, 0.05) 100%);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.ecosystem-card:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+  transform: translateY(-5px);
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.ecosystem-card h4 {
+  color: var(--primary-color);
+  margin: 0;
+}
+
+.ecosystem-card p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.card-link {
+  color: var(--secondary-color);
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.ecosystem-card:hover .card-link {
+  color: var(--primary-color);
+}
+
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.social-card {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(255, 107, 157, 0.05) 100%);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.social-card:hover {
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 20px rgba(255, 107, 157, 0.2);
+  transform: translateY(-5px);
+}
+
+.social-icon {
+  font-size: 2.5rem;
+}
+
+.social-card h4 {
+  color: var(--primary-color);
+  margin: 0;
+}
+
+.social-card p {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.cross-promo {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(255, 107, 157, 0.05) 100%);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+.cross-promo h3 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.promo-box {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 1.5rem;
+  border-radius: 5px;
+  border-left: 3px solid var(--success-color);
+}
+
+.promo-box p {
+  color: var(--text-secondary);
+  margin: 0.75rem 0;
+  font-size: 0.95rem;
+}
+
+.route-info {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.card-desc {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .header-content {
@@ -366,5 +682,21 @@ section h2 {
 
   .market-stats {
     grid-template-columns: 1fr;
+  }
+
+  .routes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ecosystem-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .social-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-links-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

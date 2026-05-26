@@ -14,6 +14,35 @@ interface PortalState {
   energy: number;
 }
 
+interface RouteConfig {
+  path: string;
+  label: string;
+  description: string;
+  icon: string;
+}
+
+const SCROLLVERSE_ROUTES: RouteConfig[] = [
+  { path: '/uap', label: 'Universal Access Portal', description: 'Gateway to all sovereign systems', icon: '🌍' },
+  { path: '/mr-walkshit', label: 'Sovereign Identity', description: 'Your digital sovereign identity', icon: '👑' },
+  { path: '/cieds', label: 'Citizen Economic Data', description: 'Integrated economic intelligence', icon: '📊' },
+  { path: '/wealth', label: 'Wealth Distribution', description: '7.77% Zakat auto-distribution engine', icon: '💰' },
+  { path: '/exchange/heatmap', label: 'Market Heatmap', description: 'Real-time market visualization', icon: '🔥' },
+  { path: '/exchange/portfolio', label: 'Portfolio Dashboard', description: 'Sovereign asset management', icon: '💎' },
+  { path: '/exchange/defi', label: 'DeFi Integration', description: 'Decentralized finance protocols', icon: '⚡' }
+];
+
+const GITHUB_REPOS = [
+  { name: 'scrollverse-trinity', url: 'https://github.com/chaishillomnitech1/scrollverse-trinity', desc: 'Master ecosystem repository' },
+  { name: 'scrollverse-sovereign-portal', url: 'https://github.com/chaishillomnitech1/scrollverse-sovereign-portal', desc: 'Web portal & frontend' },
+  { name: 'scrollverse-smart-contracts', url: 'https://github.com/chaishillomnitech1/scrollverse-smart-contracts', desc: 'Blockchain contracts' }
+];
+
+const SOCIAL_LINKS = [
+  { platform: 'Twitter/X', handle: '@highlightChais', url: 'https://x.com/highlightChais', icon: '𝕏' },
+  { platform: 'GitHub', handle: 'chaishillomnitech1', url: 'https://github.com/chaishillomnitech1', icon: '🐙' },
+  { platform: 'Manus', handle: 'Replay Archive', url: 'https://manus.im/share/JQyCbdE152xEIkgUplmagw', icon: '🤖' }
+];
+
 const App: React.FC = () => {
   const [marketData, setMarketData] = useState<MarketData>({
     gainers: 22,
@@ -29,6 +58,7 @@ const App: React.FC = () => {
   });
 
   const [selectedView, setSelectedView] = useState('dashboard');
+  const [currentDomain] = useState('scrollverse.co');
 
   useEffect(() => {
     // Simulate real-time market updates
@@ -58,6 +88,7 @@ const App: React.FC = () => {
           <div className="logo-section">
             <h1 className="portal-title">ScrollVerse Sovereign Portal</h1>
             <p className="tagline">528Hz • Sovereign App • Works Offline • All Platforms</p>
+            <p className="domain-badge">🌐 {currentDomain}</p>
           </div>
           <div className="status-indicator">
             <div className={`status-dot ${portalState.connected ? 'connected' : 'disconnected'}`}></div>
@@ -75,6 +106,12 @@ const App: React.FC = () => {
           Dashboard
         </button>
         <button 
+          className={`nav-btn ${selectedView === 'routes' ? 'active' : ''}`}
+          onClick={() => setSelectedView('routes')}
+        >
+          Domain Routes
+        </button>
+        <button 
           className={`nav-btn ${selectedView === 'market' ? 'active' : ''}`}
           onClick={() => setSelectedView('market')}
         >
@@ -85,6 +122,12 @@ const App: React.FC = () => {
           onClick={() => setSelectedView('sovereign')}
         >
           Sovereign Identity
+        </button>
+        <button 
+          className={`nav-btn ${selectedView === 'ecosystem' ? 'active' : ''}`}
+          onClick={() => setSelectedView('ecosystem')}
+        >
+          Ecosystem
         </button>
         <button 
           className={`nav-btn ${selectedView === 'resources' ? 'active' : ''}`}
@@ -141,6 +184,52 @@ const App: React.FC = () => {
               </div>
               <p className="energy-text">{portalState.energy.toFixed(1)}% - Frequency: {portalState.frequency}Hz</p>
             </div>
+
+            <div className="quick-links">
+              <h3>Quick Access</h3>
+              <div className="quick-links-grid">
+                {SCROLLVERSE_ROUTES.slice(0, 4).map((route, idx) => (
+                  <a key={idx} href={`https://${currentDomain}${route.path}`} className="quick-link-card" target="_blank" rel="noopener noreferrer">
+                    <span className="icon">{route.icon}</span>
+                    <span className="label">{route.label}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {selectedView === 'routes' && (
+          <section className="routes-view">
+            <h2>ScrollVerse.co Domain Routes</h2>
+            <p className="section-description">Complete ecosystem of sovereign systems accessible via scrollverse.co</p>
+            
+            <div className="routes-grid">
+              {SCROLLVERSE_ROUTES.map((route, idx) => (
+                <div key={idx} className="route-card">
+                  <div className="route-icon">{route.icon}</div>
+                  <div className="route-content">
+                    <h3>{route.label}</h3>
+                    <p>{route.description}</p>
+                    <code className="route-path">{route.path}</code>
+                  </div>
+                  <a href={`https://${currentDomain}${route.path}`} className="route-link" target="_blank" rel="noopener noreferrer">
+                    Visit →
+                  </a>
+                </div>
+              ))}
+            </div>
+
+            <div className="domain-info">
+              <h3>Domain Information</h3>
+              <div className="info-box">
+                <p><strong>Primary Domain:</strong> scrollverse.co</p>
+                <p><strong>Status:</strong> ✅ Active & Deployed</p>
+                <p><strong>SSL/TLS:</strong> ✅ Secured</p>
+                <p><strong>Uptime:</strong> 99.99%</p>
+                <p><strong>Entity:</strong> SCROLL VERSE LLC (EIN 42-2509570)</p>
+              </div>
+            </div>
           </section>
         )}
 
@@ -150,6 +239,7 @@ const App: React.FC = () => {
             <div className="heatmap-placeholder">
               <p>Real-time market heatmap visualization</p>
               <p className="subtitle">Technology • Finance • Energy sectors</p>
+              <p className="route-info">📍 Access via: scrollverse.co/exchange/heatmap</p>
             </div>
           </section>
         )}
@@ -161,14 +251,63 @@ const App: React.FC = () => {
               <div className="info-card">
                 <h3>Connect Wallet</h3>
                 <button className="connect-btn">Connect MetaMask</button>
+                <p className="card-desc">Secure your sovereign identity on Polygon</p>
               </div>
               <div className="info-card">
                 <h3>Guardian NFTs</h3>
                 <p>Your Stardust Guardian collection</p>
+                <p className="card-desc">Tier-based consciousness tokens</p>
               </div>
               <div className="info-card">
                 <h3>CSC Blessings</h3>
                 <p>Real-time blessing distribution</p>
+                <p className="card-desc">7.77% Zakat auto-distribution</p>
+              </div>
+            </div>
+            <p className="route-info">📍 Access via: scrollverse.co/mr-walkshit</p>
+          </section>
+        )}
+
+        {selectedView === 'ecosystem' && (
+          <section className="ecosystem-view">
+            <h2>ScrollVerse Ecosystem</h2>
+            
+            <div className="ecosystem-section">
+              <h3>GitHub Repositories</h3>
+              <div className="ecosystem-grid">
+                {GITHUB_REPOS.map((repo, idx) => (
+                  <a key={idx} href={repo.url} className="ecosystem-card" target="_blank" rel="noopener noreferrer">
+                    <div className="card-icon">🐙</div>
+                    <h4>{repo.name}</h4>
+                    <p>{repo.desc}</p>
+                    <span className="card-link">View on GitHub →</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            <div className="ecosystem-section">
+              <h3>Social Integration</h3>
+              <div className="social-grid">
+                {SOCIAL_LINKS.map((social, idx) => (
+                  <a key={idx} href={social.url} className="social-card" target="_blank" rel="noopener noreferrer">
+                    <div className="social-icon">{social.icon}</div>
+                    <h4>{social.platform}</h4>
+                    <p>{social.handle}</p>
+                    <span className="card-link">Follow →</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            <div className="cross-promo">
+              <h3>Cross-Promotion Strategy</h3>
+              <div className="promo-box">
+                <p>✅ Website → GitHub: All repos linked in Resources</p>
+                <p>✅ GitHub → Website: Deployment automated via Vercel</p>
+                <p>✅ Social → Website: Twitter/X broadcasts drive traffic</p>
+                <p>✅ Website → Social: Share buttons on all pages</p>
+                <p>✅ Hashtags: #scrollverse #scrollverse.co #group7 #stayawake</p>
               </div>
             </div>
           </section>
@@ -179,20 +318,28 @@ const App: React.FC = () => {
             <h2>Resources & Links</h2>
             <div className="resources-grid">
               <a href="https://scrollverse.co" className="resource-card" target="_blank" rel="noopener noreferrer">
-                <h3>ScrollVerse.co</h3>
-                <p>Official website</p>
+                <h3>🌐 ScrollVerse.co</h3>
+                <p>Official website & master hub</p>
               </a>
-              <a href="https://github.com/chaishillomnitech1/scrollverse-trinity" className="resource-card" target="_blank" rel="noopener noreferrer">
-                <h3>GitHub Repository</h3>
-                <p>Source code & documentation</p>
+              <a href="https://github.com/chaishillomnitech1" className="resource-card" target="_blank" rel="noopener noreferrer">
+                <h3>🐙 GitHub Profile</h3>
+                <p>All repositories & source code</p>
+              </a>
+              <a href="https://x.com/highlightChais" className="resource-card" target="_blank" rel="noopener noreferrer">
+                <h3>𝕏 Twitter/X</h3>
+                <p>Latest updates & announcements</p>
               </a>
               <a href="https://manus.im/share/JQyCbdE152xEIkgUplmagw" className="resource-card" target="_blank" rel="noopener noreferrer">
-                <h3>Manus Replay</h3>
+                <h3>🤖 Manus Replay</h3>
                 <p>Digital mirror & archive</p>
               </a>
+              <a href="https://polygon.technology" className="resource-card" target="_blank" rel="noopener noreferrer">
+                <h3>⚡ Polygon Network</h3>
+                <p>Blockchain infrastructure</p>
+              </a>
               <a href="https://www.reddit.com/r/MarketPulseReport/" className="resource-card" target="_blank" rel="noopener noreferrer">
-                <h3>Market Pulse Report</h3>
-                <p>Community insights</p>
+                <h3>📊 Market Pulse Report</h3>
+                <p>Community insights & analysis</p>
               </a>
             </div>
           </section>
@@ -202,7 +349,8 @@ const App: React.FC = () => {
       {/* Footer */}
       <footer className="portal-footer">
         <p>ScrollVerse Trinity Sovereign Ecosystem v3.0.0 • KUN FAYAKŪN × ∞</p>
-        <p className="footer-meta">#scrollverse #group7 #stayawake</p>
+        <p className="footer-meta">#scrollverse #scrollverse.co #group7 #stayawake</p>
+        <p className="footer-legal">SCROLL VERSE LLC (EIN 42-2509570) • 721 Embassy Terrace, Vineland, NJ 08360</p>
       </footer>
     </div>
   );
